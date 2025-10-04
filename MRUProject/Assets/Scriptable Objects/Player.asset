@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: Lil Guy
   speed: 10
+  rotateSpeed: 2
   timeSlowed: 0

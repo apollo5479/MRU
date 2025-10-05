@@ -32,6 +32,7 @@ public class AbilityManager : MonoBehaviour
     }
     public void UseAbility(Ability ability)
     {
+        
         ability.trigger(user);
     }
 

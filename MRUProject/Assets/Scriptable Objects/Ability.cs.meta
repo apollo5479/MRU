@@ -3,7 +3,11 @@ guid: 8c8001b431b05ef4c8f8386d0dd507ca
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - abilityPrefab: {instanceID: 0}
+  - HitboxField2: {fileID: 9009156707296204526, guid: e4f22042cf336b745bc12b8e8662359c, type: 3}
+  - HitboxField3: {fileID: 2879202949438337154, guid: acf44d57c21379f46962d8d5181f0f0c, type: 3}
+  - HitboxField4: {fileID: 520069600274871212, guid: e4d2cef86f2b6144e832b829dc114c68, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

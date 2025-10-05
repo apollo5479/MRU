@@ -379,6 +379,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 94b1411b09597f84d88682a830b6188e, type: 3}
       insertIndex: -1
       addedObject: {fileID: -4650262642124027828}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 94b1411b09597f84d88682a830b6188e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8861565780459372052}
   m_SourcePrefab: {fileID: 100100000, guid: 94b1411b09597f84d88682a830b6188e, type: 3}
 --- !u!1 &370569765530404953 stripped
 GameObject:
@@ -408,8 +411,8 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 1
 --- !u!114 &6800826045234399830
@@ -432,9 +435,10 @@ MonoBehaviour:
   isMoving: 1
   attackRange: 5
   attackTimer: 0
-  attackCooldown: 2.5
+  attackCooldown: 4
   distance: 0
   magicBullet: {fileID: 5345319567625721919, guid: dc7b839414d088144b02feb053bd55d5, type: 3}
+  crater: {fileID: 0}
   spawnOffset: {x: 0, y: 0.336, z: 0.5}
 --- !u!136 &8194932948353874000
 CapsuleCollider:
@@ -5292,8 +5296,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   bloodParticle: {fileID: 1845251336482398248}
-  animator: {fileID: 5001505096688906723}
-  damageScript: {fileID: 0}
+  scoreS: {fileID: 0}
+--- !u!114 &-8861565780459372052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370569765530404953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce19be9e69366c941a751e39dd88d362, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1040146321849242339 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 94b1411b09597f84d88682a830b6188e, type: 3}

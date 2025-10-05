@@ -7,6 +7,7 @@ TagManager:
   - Mage
   - Tank
   - Damagers
+  - myDamage
   layers:
   - Default
   - TransparentFX

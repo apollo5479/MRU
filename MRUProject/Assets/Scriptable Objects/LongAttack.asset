@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: LongAttack
   m_EditorClassIdentifier: 
   abilityName: Long Attack
+  animationName: Animation_Stab
   damage: 3
   sequence:
   - Cells: 000100

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Shield
   m_EditorClassIdentifier: 
   abilityName: Shield Buff
+  animationName: Animation_Shield
   damage: 0
   sequence:
   - Cells: 000100

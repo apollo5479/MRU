@@ -10,10 +10,18 @@ public class Damage : MonoBehaviour
     //public Animator animator;
     //public Damage damageScript;
     //public AnimatorStateInfo stateInfo;
+    public scoreScript scoreS;
 
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Damagers")) {
+            Debug.Log("Taking damage");
+            takeDamage(1);
+            TriggerBloodEffect(gameObject.transform.position);
+        }
+        if (other.gameObject.name == "AttackObject")
+        {
+            Debug.Log("Enemy Taking damage");
             takeDamage(1);
             TriggerBloodEffect(gameObject.transform.position);
         }
@@ -25,59 +33,59 @@ public class Damage : MonoBehaviour
             damageScript.takeDamage(1);
         }*/
 
-            /*if (other.gameObject.CompareTag("Tank") || other.gameObject.CompareTag("Mage")) {
-                TriggerBloodEffect(gameObject.transform.position);
-            }
+        /*if (other.gameObject.CompareTag("Tank") || other.gameObject.CompareTag("Mage")) {
+            TriggerBloodEffect(gameObject.transform.position);
+        }
 
 
 
 
-            if (other.gameObject.CompareTag("Mage") || other.gameObject.CompareTag("Tank"))
-            {
-                AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-
-                if (stateInfo.IsName("Attack"))
-                {
-                    Debug.Log("Player is vulnerable during 'Hurt' animation. Taking damage.");
-                    takeDamage(1);
-                }
-            }
-
-            /*Animator animator = other.gameObject.GetComponent<Animator>();
+        if (other.gameObject.CompareTag("Mage") || other.gameObject.CompareTag("Tank"))
+        {
             AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-            Debug.Log(stateInfo.ToString());
-            if ((gameObject.tag == "Player")) {
-                Debug.Log(" Player had a collision");
-                if (other.gameObject.CompareTag("Mage") && stateInfo.IsName("Attack"))
-                {
-                    Debug.Log("You got hit by the mage");
-                    takeDamage(1);
-                }
-                if (other.gameObject.CompareTag("Tank") && stateInfo.IsName("Attack"))
-                {
-                    Debug.Log("You got hit by the tank");
-                    takeDamage(3);
-                }
-            } else if ((gameObject.tag == "Mage") || (gameObject.tag == "Tank")) {
-                Debug.Log("I got hit by a player");
-                if (stateInfo.IsName("Stab") && other.gameObject.CompareTag("Player"))
-                {
-                    takeDamage(2);
-                }
-                if (stateInfo.IsName("AoE") && other.gameObject.CompareTag("Player"))
-                {
-                    takeDamage(4);
-                }
-                if (stateInfo.IsName("Slash") && other.gameObject.CompareTag("Player"))
-                {
-                    takeDamage(1);
-                }
-            }
 
-            /*if (other.gameObject.CompareTag("Player") && ())
+            if (stateInfo.IsName("Attack"))
             {
+                Debug.Log("Player is vulnerable during 'Hurt' animation. Taking damage.");
+                takeDamage(1);
+            }
+        }
 
-            }*/
+        /*Animator animator = other.gameObject.GetComponent<Animator>();
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        Debug.Log(stateInfo.ToString());
+        if ((gameObject.tag == "Player")) {
+            Debug.Log(" Player had a collision");
+            if (other.gameObject.CompareTag("Mage") && stateInfo.IsName("Attack"))
+            {
+                Debug.Log("You got hit by the mage");
+                takeDamage(1);
+            }
+            if (other.gameObject.CompareTag("Tank") && stateInfo.IsName("Attack"))
+            {
+                Debug.Log("You got hit by the tank");
+                takeDamage(3);
+            }
+        } else if ((gameObject.tag == "Mage") || (gameObject.tag == "Tank")) {
+            Debug.Log("I got hit by a player");
+            if (stateInfo.IsName("Stab") && other.gameObject.CompareTag("Player"))
+            {
+                takeDamage(2);
+            }
+            if (stateInfo.IsName("AoE") && other.gameObject.CompareTag("Player"))
+            {
+                takeDamage(4);
+            }
+            if (stateInfo.IsName("Slash") && other.gameObject.CompareTag("Player"))
+            {
+                takeDamage(1);
+            }
+        }
+
+        /*if (other.gameObject.CompareTag("Player") && ())
+        {
+
+        }*/
     }
 
     //attach this script to enemies
@@ -86,7 +94,13 @@ public class Damage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        if (gameObject.CompareTag("Mage")) {
+            health = 1;
+        }
+        if (gameObject.CompareTag("Tank"))
+        {
+            health = 3;
+        }
         //AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0); // 0 = Base Layer
         /*if (!gameObject.CompareTag("Player")) {
             damageScript = GameObject.FindWithTag("Player").GetComponent<Damage>();
@@ -109,7 +123,10 @@ public class Damage : MonoBehaviour
         
     }
 
-    void takeDamage(int damage) {
+    public void takeDamage(int damage) {
+        if (gameObject.CompareTag("Mage") || gameObject.CompareTag("Tank")) {
+            TriggerBloodEffect(gameObject.transform.position);
+        }
         if (health <= damage) {
             die();
         } else
@@ -119,14 +136,26 @@ public class Damage : MonoBehaviour
     }
 
     void die() {
-        Destroy(gameObject);
-        //cue the unity particle system
-        TriggerBloodEffect(gameObject.transform.position);
-        if (gameObject.tag == "Player") {
+        if (gameObject.tag == "Player")
+        {
             Invoke("swapScene", 1f);
         }
+        else {
+            GameObject txt = GameObject.Find("Score");
+            scoreS = txt.GetComponent<scoreScript>(); // Damage dmgScript = col.GetComponent<Damage>();
+            scoreS.score += 1;
+            Destroy(gameObject);
+        }
+        
+        //cue the unity particle system
+        TriggerBloodEffect(gameObject.transform.position);
+        
     }
     void swapScene() {
         SceneManager.LoadScene("MainMenu");
     }
+    /*void OnDestroy()
+    {
+        TriggerBloodEffect(gameObject.transform.position);
+    }*/
 }

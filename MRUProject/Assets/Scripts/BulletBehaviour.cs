@@ -20,6 +20,9 @@ public class BulletBehaviour : MonoBehaviour
         Destroy(gameObject, whenDie);
         Invoke("goVisible", 0.2f);
     }
+    void OnCollisionEnter(Collision other) {
+        Destroy(gameObject, 0.5f);
+    }
 
     // Update is called once per frame
     void Update()

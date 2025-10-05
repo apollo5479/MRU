@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Fire Sphere
   m_EditorClassIdentifier: 
   abilityName: Fire Sphere
+  animationName: Animation_AoE
   damage: 3
   sequence:
   - Cells: 010001

@@ -161,6 +161,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2bc8d3557af316243856d82f97fdc668, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4032941345456171848}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2bc8d3557af316243856d82f97fdc668, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7622309104672329215}
   m_SourcePrefab: {fileID: 100100000, guid: 2bc8d3557af316243856d82f97fdc668, type: 3}
 --- !u!1 &1838034392078480988 stripped
 GameObject:
@@ -190,8 +193,8 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 1
 --- !u!114 &7049529285983622649
@@ -214,7 +217,7 @@ MonoBehaviour:
   isMoving: 1
   attackRange: 1
   attackTimer: 0
-  attackCooldown: 3
+  attackCooldown: 5
   distance: 0
   magicBullet: {fileID: 5345319567625721919, guid: dc7b839414d088144b02feb053bd55d5, type: 3}
   crater: {fileID: 983545355223626495, guid: 59c60c7dace06024799fdca835172741, type: 3}
@@ -238,7 +241,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.93
+  m_Radius: 0.35
   m_Height: 0.96
   m_Direction: 1
   m_Center: {x: 0, y: 0.48, z: 0}
@@ -277,8 +280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   bloodParticle: {fileID: 2613052787490208957}
-  animator: {fileID: 1703758154161001363}
-  damageScript: {fileID: 0}
+  scoreS: {fileID: 0}
 --- !u!198 &2613052787490208957
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5077,3 +5079,15 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &7622309104672329215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838034392078480988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce19be9e69366c941a751e39dd88d362, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

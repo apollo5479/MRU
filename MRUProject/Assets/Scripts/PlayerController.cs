@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
     if (Input.GetKey("d")) inputVector.x += 1;
     if (Input.GetKey("w")) inputVector.z += 1;
     if (Input.GetKey("s")) inputVector.z -= 1;
-
     inputVector.Normalize(); // prevent diagonal speed boost
 }
 

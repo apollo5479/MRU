@@ -3,7 +3,11 @@ guid: c8c7b2f64c0bc0b4eb2db5e18243db0b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - rb: {instanceID: 0}
+  - animator: {instanceID: 0}
+  - magicBullet: {instanceID: 0}
+  - crater: {fileID: 983545355223626495, guid: 59c60c7dace06024799fdca835172741, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

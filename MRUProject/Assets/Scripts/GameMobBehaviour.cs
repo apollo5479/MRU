@@ -18,6 +18,7 @@ public class GameMobBehaviour : MonoBehaviour
     public float distance;
     //public Transform spawnPosition;
     public GameObject magicBullet;
+    public GameObject crater;
     public Vector3 spawnOffset = new Vector3(0f, 0.336f, 0.5f);
 
     // Start is called before the first frame update
@@ -103,6 +104,12 @@ public class GameMobBehaviour : MonoBehaviour
             Instantiate(magicBullet, gameObject.transform.position, gameObject.transform.rotation); // + spawnOffset
         }
     }
-
+    public void spawnCrater()
+    {
+        if (gameObject.tag == "Tank")
+        {
+            Instantiate(crater, gameObject.transform.position, gameObject.transform.rotation); // + spawnOffset
+        }
+    }
 
 }

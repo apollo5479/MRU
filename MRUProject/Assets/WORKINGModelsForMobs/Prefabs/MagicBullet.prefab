@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3106585725674783522}
   m_Layer: 0
   m_Name: MagicBullet
-  m_TagString: Untagged
+  m_TagString: Damagers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

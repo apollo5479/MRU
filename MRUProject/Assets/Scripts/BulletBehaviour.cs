@@ -8,7 +8,7 @@ public class BulletBehaviour : MonoBehaviour
     public Rigidbody rb;
     public float speed = 5f;
     Vector3 targetDirection;
-    public float whenDie = 3f;
+    public float whenDie = 2f;
     private MeshRenderer meshRenderer;
     // Start is called before the first frame update
     void Start()

@@ -7,6 +7,7 @@ public class AbilityManager : MonoBehaviour
     public static AbilityManager Instance { get; private set; }
 
     private HashSet<Ability> unlockedAbilities = new HashSet<Ability>();
+    private GameObject user;
 
     private void Awake()
     {
@@ -18,6 +19,7 @@ public class AbilityManager : MonoBehaviour
 
         Instance = this;
     }
+    
     public void UnlockAbility(Ability ability)
     {
         unlockedAbilities.Add(ability);
@@ -28,10 +30,14 @@ public class AbilityManager : MonoBehaviour
     {
         return unlockedAbilities.Contains(ability);
     }
+    public void UseAbility(Ability ability)
+    {
+        ability.trigger(user);
+    }
 
     public void ResetAbilities()
     {
         unlockedAbilities.Clear();
     }
-
+    
 }

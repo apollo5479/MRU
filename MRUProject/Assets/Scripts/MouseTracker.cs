@@ -24,7 +24,10 @@ public class MouseTracker : MonoBehaviour
         {
             Vector3 worldPosition = hit.point;
 
-            Quaternion lookAt = Quaternion.LookRotation(worldPosition - playerTransform.position);
+            worldPosition.y = 0;
+            Vector3 playerNormal = new Vector3(playerTransform.position.x, 0, playerTransform.position.z);
+
+            Quaternion lookAt = Quaternion.LookRotation(worldPosition - playerNormal);
 
             // Smoothly rotate towards the target rotation quaternion.
             playerTransform.rotation = Quaternion.Slerp(playerTransform.rotation, lookAt, playerData.rotateSpeed * Time.deltaTime);

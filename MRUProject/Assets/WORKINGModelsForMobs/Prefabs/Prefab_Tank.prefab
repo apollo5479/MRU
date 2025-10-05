@@ -206,6 +206,9 @@ MonoBehaviour:
   attackRange: 1
   attackTimer: 0
   attackCooldown: 3
+  distance: 0
+  spawnPosition: {fileID: 0}
+  magicBullet: {fileID: 5345319567625721919, guid: dc7b839414d088144b02feb053bd55d5, type: 3}
 --- !u!136 &5121028822096553988
 CapsuleCollider:
   m_ObjectHideFlags: 0

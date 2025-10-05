@@ -16,6 +16,9 @@ public class GameMobBehaviour : MonoBehaviour
     public float attackTimer = 0;
     public float attackCooldown;
     public float distance;
+    //public Transform spawnPosition;
+    public GameObject magicBullet;
+    public Vector3 spawnOffset = new Vector3(0f, 0.336f, 0.5f);
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +35,7 @@ public class GameMobBehaviour : MonoBehaviour
             attackRange = 5f;
             attackCooldown = 2f;
         }
+        //spawnPosition = transform.Find("bulletSpawn");
     }
 
     // Update is called once per frame
@@ -42,16 +46,16 @@ public class GameMobBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
-        float distance = Vector3.Distance(rb.position, target.position);
+        distance = Vector3.Distance(rb.position, target.position);
         if (attackTimer > 0)
         {
             attackTimer -= Time.fixedDeltaTime;
         }
 
-
         // If close enough and not on cooldown
         if (distance <= attackRange && !isAttacking && attackTimer <= 0f)
         {
+            
             StartCoroutine(Attack());
         }
 
@@ -59,36 +63,6 @@ public class GameMobBehaviour : MonoBehaviour
         {
             MoveTowardTarget();
         }
-        /*if (isAttacking) {
-            Vector3 direction = target.position - transform.position;
-            direction.y = 0f;
-
-            if (direction.magnitude > 0.1f)
-            {
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
-                rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime));
-
-                if ((Vector3.Distance(transform.position, target.position) < 10f) && gameObject.tag == "Mage")
-                {
-                    // initiate attack
-                    StartCoroutine(Attack());
-                    //attack(1);
-                    isAttacking = true;
-                    return;
-                }
-                if ((Vector3.Distance(transform.position, target.position) < 3f) && gameObject.tag == "Tank")
-                {
-                    // initiate attack
-                    StartCoroutine(Attack());
-                    //attack(2);
-                    isAttacking = true;
-                    return;
-                }
-                Vector3 newPosition = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.fixedDeltaTime);
-                rb.MovePosition(newPosition);
-                isMoving = true;
-            }
-        }*/
     }
     void MoveTowardTarget()
     {
@@ -102,11 +76,11 @@ public class GameMobBehaviour : MonoBehaviour
             targetRotation *= Quaternion.Euler(0, -180, 0);
             rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime));
             Vector3 newPos = Vector3.MoveTowards(rb.position, target.position, moveSpeed * Time.fixedDeltaTime);
-            rb.MovePosition(newPos);
-            /*if (distance >= attackRange)
+
+            if (distance >= attackRange)
             {
-                
-            }*/
+                rb.MovePosition(newPos);
+            }
         }
     }
     private System.Collections.IEnumerator Attack()
@@ -116,20 +90,19 @@ public class GameMobBehaviour : MonoBehaviour
         attackTimer = attackCooldown;
 
         animator.SetTrigger("AttackTrigger");
+        
         yield return new WaitForSeconds(1f);
 
         isAttacking = false;
         isMoving = true;
     }
-    void attack(int who)
-    {
-        /*if (who == 1) { // mage
-            animator.SetTrigger("AttackTrigger")
-            yield return new WaitForSeconds(1f);
-        } else if (who == 2) { //tank
-            animator.SetTrigger("AttackTrigger")
-            yield return new WaitForSeconds(1f);
-        }*/
+
+    public void spawnMissile() {
+        if (gameObject.tag == "Mage")
+        {
+            Instantiate(magicBullet, gameObject.transform.position, gameObject.transform.rotation); // + spawnOffset
+        }
     }
+
 
 }

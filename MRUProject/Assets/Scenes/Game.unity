@@ -504,16 +504,16 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2780412887252576341, guid: c68852e43adeaf74ba20b7b12c0bb053, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 220383023}
-    - targetCorrespondingSourceObject: {fileID: 2780412887252576341, guid: c68852e43adeaf74ba20b7b12c0bb053, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 220383022}
     - targetCorrespondingSourceObject: {fileID: 2780412887252576341, guid: c68852e43adeaf74ba20b7b12c0bb053, type: 3}
       insertIndex: -1
       addedObject: {fileID: 220383021}
     - targetCorrespondingSourceObject: {fileID: 2780412887252576341, guid: c68852e43adeaf74ba20b7b12c0bb053, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 220383025}
+      addedObject: {fileID: 220383028}
+    - targetCorrespondingSourceObject: {fileID: 2780412887252576341, guid: c68852e43adeaf74ba20b7b12c0bb053, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 220383027}
   m_SourcePrefab: {fileID: 100100000, guid: c68852e43adeaf74ba20b7b12c0bb053, type: 3}
 --- !u!1 &220383020 stripped
 GameObject:
@@ -568,31 +568,31 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 14
+  m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &220383023
+--- !u!114 &220383027
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220383020}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cef6af9a76b31884da6d50bac59d6e84, type: 3}
+  m_Script: {fileID: 11500000, guid: ce968a9277792304489c94a85fc88265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 66686edf130ce9c488664cad022a3f46, type: 2}
---- !u!114 &220383025
+--- !u!114 &220383028
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220383020}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce968a9277792304489c94a85fc88265, type: 3}
+  m_Script: {fileID: 11500000, guid: cef6af9a76b31884da6d50bac59d6e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 66686edf130ce9c488664cad022a3f46, type: 2}
@@ -1066,7 +1066,7 @@ MonoBehaviour:
   min: 15
   max: 30
   subtractor: 0.2
-  startingHeight: 0.3
+  startingHeight: 0
   playAreaYcoord: 15
   playAreaXcoord: 15
   Mage_Prefab: {fileID: 370569765530404953, guid: 3efeff4896261a64dbeebda0ee971fc9, type: 3}

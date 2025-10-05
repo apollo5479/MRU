@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private Transform playerTransform;
     private Rigidbody rb;
 
-    private Vector3 moveVector;
+    private Vector3 inputVector;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,20 +19,21 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
-    }
-    public void FixedUpdate()
-    {
-        Vector3 moveVector = Vector3.zero;
+{
+    // Read input in Update()
+    inputVector = Vector3.zero;
+    if (Input.GetKey("a")) inputVector.x -= 1;
+    if (Input.GetKey("d")) inputVector.x += 1;
+    if (Input.GetKey("w")) inputVector.z += 1;
+    if (Input.GetKey("s")) inputVector.z -= 1;
 
-        if (Input.GetKey("a")) moveVector.x -= 1;
-        if (Input.GetKey("d")) moveVector.x += 1;
-        if (Input.GetKey("w")) moveVector.z += 1;
-        if (Input.GetKey("s")) moveVector.z -= 1;
+    inputVector.Normalize(); // prevent diagonal speed boost
+}
 
-        moveVector.Normalize();
-        rb.MovePosition(rb.position + moveVector * playerData.speed * Time.fixedDeltaTime);
-        playerTransform.rotation = Quaternion.identity;
-    }
+void FixedUpdate()
+{
+    // Move in FixedUpdate using physics
+    Vector3 move = inputVector * playerData.speed * Time.fixedDeltaTime;
+    rb.MovePosition(rb.position + move);
+}
 }

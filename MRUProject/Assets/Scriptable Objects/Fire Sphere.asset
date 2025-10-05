@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c8001b431b05ef4c8f8386d0dd507ca, type: 3}
-  m_Name: LongAttack
+  m_Name: Fire Sphere
   m_EditorClassIdentifier: 
-  abilityName: Long Attack
+  abilityName: Fire Sphere
   damage: 3
   sequence:
+  - Cells: 010001
   - Cells: 000100
-  - Cells: 000100
-  - Cells: 000100
+  - Cells: 010001
   cooldown: 0
-  abilityPrefab: {fileID: 2672773221378346183, guid: 73dc0b43846c23f42b5897c222c0c856, type: 3}
+  abilityPrefab: {fileID: 7315232291437393825, guid: 71a5e3b9bc08ff443a05393734722329, type: 3}
